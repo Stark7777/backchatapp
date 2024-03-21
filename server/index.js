@@ -59,7 +59,7 @@ app.get('/status', (request, response) => {
 
 const io = socket(server,{
     cors: {
-        origin: "http://localhost:3000",
+        origin: "https://backchatapp-kqru.onrender.com",
         credentials: true,
     },
 });
