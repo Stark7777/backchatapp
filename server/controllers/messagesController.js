@@ -2,9 +2,11 @@ const messageModel = require("../models/messageModel");
 const agentSessionModel = require("../models/agentSessionModel");
 const queueModel = require("../models/queueModel");
 const enums = require("../conts/enums");
-const { default: axiosInstance } = require("../api/axios");
+// const { default: axiosInstance } = require("../api/axios");
 //const axios = require("axios");
-const axios = require(axiosInstance);
+// const axios = require(axiosInstance);
+const axios = require("../api/axios");
+
 
 module.exports.addMessage = async (req, res, next) => {
     try {
