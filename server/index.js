@@ -12,13 +12,15 @@ const agentSessionModel = require("./models/agentSessionModel");
 //temp
 const queueModel = require("./models/queueModel");
 const messageModel = require("./models/messageModel");
-
+const corsOptions = {
+    origin: "https://chatappclient-uqau.onrender.com", // Asegúrate de que esta URL coincide exactamente con la URL de tu cliente React
+    credentials: true, // Si estás utilizando cookies o autenticación basada en tokens
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Asegúrate de incluir todos los métodos que tu aplicación utiliza
+    allowedHeaders: ['Content-Type', 'Authorization'] // Incluye aquí otros headers que tu aplicación pueda enviar
+  };
 dotenv.config();
 //app.use(cors());
-app.use(cors({
-    origin: "https://chatappclient-uqau.onrender.com", // URL de tu cliente React
-    credentials: true,
-  }));
+app.use(cors(corsOptions));
 app.use(express.json());
 
 //store all online users inside this map
