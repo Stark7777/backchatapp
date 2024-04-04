@@ -63,8 +63,6 @@ const server = app.listen(process.env.PORT, ()=>{
 
 // status
 app.get('/status', (request, response) => {
-    logger.log("debug", "Test debug!"); //debug level as first param
-    logger.info("The is the home '/status' route.");
     const status = {
        'Status': 'Esperando comunicación con BOT'
     };
