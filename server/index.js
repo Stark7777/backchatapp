@@ -1,3 +1,4 @@
+const logger = require("./logger");
 const express = require("express");
 const app = express(); 
 const cors  = require("cors");
@@ -60,8 +61,10 @@ const server = app.listen(process.env.PORT, ()=>{
 
 // status
 app.get('/status', (request, response) => {
+    logger.log("debug", "Test debug!"); //debug level as first param
+    logger.info("The is the home '/status' route.");
     const status = {
-       'Status': 'Running'
+       'Status': 'Esperando comunicación con BOT'
     };
     
     response.status(200).send(status);
@@ -88,7 +91,12 @@ io.on("connection",(socket)=>{
     console.log(`socket.id: ${socket.id} - socket.sessionId: ${socket.sessionId} - socket.agent: ${socket.agent}`);
     
     // join the "sessionId" room
-    socket.join(socket.sessionId);
+    try{
+        socket.join(socket.sessionId);
+    }
+    catch{
+        logger.error(`Error en socket.id: ${socket.id} - socket.sessionId: ${socket.sessionId} - socket.agent: ${socket.agent}`)
+    }
 
 });
 
@@ -121,7 +129,8 @@ io.use(async (socket, next) => {
     socket.connected = true;
 
     console.log(`New session session.agent: ${userId} - session.connect: ${true}  - session._id: ${newSessionId}`);
-
+    logger.info(`Detalle ${userId} - session.connect: ${true}  - session._id: ${newSessionId}`)
+    
     next();
 });
 
