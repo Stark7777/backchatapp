@@ -51,7 +51,10 @@ mongoose.connect(process.env.MONGO_URL, {
         queueModel.deleteMany({}).then(x => console.log('queueModel ok'));
         messageModel.deleteMany({}).then(x => console.log('messageModel ok'));
 
-    }).catch((err) => console.log(err));
+    }).catch(
+        (err) => console.log(err)
+        
+        );
 
 
 
@@ -93,6 +96,7 @@ io.on("connection",(socket)=>{
     // join the "sessionId" room
     try{
         socket.join(socket.sessionId);
+        logger.info(`Sesion en socket.id: ${socket.id} - socket.sessionId: ${socket.sessionId} - socket.agent: ${socket.agent}`)
     }
     catch{
         logger.error(`Error en socket.id: ${socket.id} - socket.sessionId: ${socket.sessionId} - socket.agent: ${socket.agent}`)
@@ -130,7 +134,7 @@ io.use(async (socket, next) => {
 
     console.log(`New session session.agent: ${userId} - session.connect: ${true}  - session._id: ${newSessionId}`);
     logger.info(`Detalle ${userId} - session.connect: ${true}  - session._id: ${newSessionId}`)
-    
+
     next();
 });
 
