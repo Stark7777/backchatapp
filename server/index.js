@@ -94,13 +94,13 @@ io.on("connection",(socket)=>{
     console.log(`socket.id: ${socket.id} - socket.sessionId: ${socket.sessionId} - socket.agent: ${socket.agent}`);
     
     // join the "sessionId" room
-    try{
+    // try{
         socket.join(socket.sessionId);
-        logger.info(`Sesion en socket.id: ${socket.id} - socket.sessionId: ${socket.sessionId} - socket.agent: ${socket.agent}`)
-    }
-    catch{
-        logger.error(`Error en socket.id: ${socket.id} - socket.sessionId: ${socket.sessionId} - socket.agent: ${socket.agent}`)
-    }
+        //logger.info(`Sesion en socket.id: ${socket.id} - socket.sessionId: ${socket.sessionId} - socket.agent: ${socket.agent}`)
+    // }
+    // catch{
+    //     logger.error(`Error en socket.id: ${socket.id} - socket.sessionId: ${socket.sessionId} - socket.agent: ${socket.agent}`)
+    // }
 
 });
 
@@ -133,7 +133,7 @@ io.use(async (socket, next) => {
     socket.connected = true;
 
     console.log(`New session session.agent: ${userId} - session.connect: ${true}  - session._id: ${newSessionId}`);
-    logger.info(`Detalle ${userId} - session.connect: ${true}  - session._id: ${newSessionId}`)
+    //logger.info(`Detalle ${userId} - session.connect: ${true}  - session._id: ${newSessionId}`)
 
     next();
 });
