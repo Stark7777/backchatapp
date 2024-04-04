@@ -1,4 +1,3 @@
-const logger = require("./logger");
 const express = require("express");
 const app = express(); 
 const cors  = require("cors");
@@ -139,8 +138,6 @@ io.use(async (socket, next) => {
 });
 
 global.io = io;
-
-
 
 async function createSession (data){
     const item = await agentSessionModel.create({
