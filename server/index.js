@@ -76,7 +76,7 @@ app.get('/status', (request, response) => {
 // });
 const io = socket(server, {
     cors: {
-      origin: "https://chatappclient-pjn0.onrender.com", // El origen de tu cliente React
+      origin: "https://chatappclient-uqau.onrender.com", // El origen de tu cliente React
       methods: ["GET", "POST"],
       credentials: true
     }
