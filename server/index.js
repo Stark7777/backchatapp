@@ -22,7 +22,7 @@ dotenv.config();
 //app.use(cors());
 // app.use(cors(corsOptions));
 app.use(cors({
-    origin: "https://chatappclient-pjn0.onrender.com", // El origen de tu cliente React
+    origin: "https://chatappclient-uqau.onrender.com", // El origen de tu cliente React
     credentials: true // Asegúrate de que las credenciales están permitidas si estás utilizando cookies o autenticación basada en cabeceras
   }));
   
