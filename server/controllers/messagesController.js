@@ -58,7 +58,7 @@ module.exports.addMessage = async (req, res, next) => {
             type: body.type,
             id: _uniqueId,
             text: body.text,
-            channelId: body.channel,
+            channelId: 3,
             timestamp: dNow.toUTCString(),
             botreference: {
                 conversationId: queueEntity.conversationIdReference
