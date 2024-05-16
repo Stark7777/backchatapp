@@ -137,9 +137,11 @@ module.exports.addUserQueue = async (req, res, next) => {
             isInQueue:true,
             conversationIdReference:body.conversationIdReference ,
             userName: body.userName,
-            channelId: body.channelId
+            channelId: body.channelId == "infobip-whatsapp" ? 3 : 2
         });
-         console.log(`${body.channelId}`);
+         console.log("IMPRIME CHANNEL ID QUE RECIBE");        
+         console.log(`${body.channelId}`);        
+         console.log("IMPRIME CHANNEL ID DE OBJETO queue");
          console.log(`${queue.channelId}`);
         if(!queue) return res.status(500).json({
             msg: "Internal server error",
