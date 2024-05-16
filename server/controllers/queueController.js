@@ -139,7 +139,8 @@ module.exports.addUserQueue = async (req, res, next) => {
             userName: body.userName,
             channelId: body.channelId
         });
-
+         console.log(`${body.channelId}`);
+         console.log(`${queue.channelId}`);
         if(!queue) return res.status(500).json({
             msg: "Internal server error",
             state: 500
