@@ -262,7 +262,8 @@ module.exports.pickUserQueue = async (req, res, next) => {
                 conversationid: queueEntity._id
             }
         });
-
+        console.log("pickUserQueue");
+        console.log(msg);
         if(msg.status != 200 ) return res.status(500).json({ 
             msg: "Failed to send event",
             state: 500
