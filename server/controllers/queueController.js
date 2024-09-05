@@ -100,13 +100,14 @@ module.exports.addMessage = async (req, res, next) => {
                 }
             });
         }
-         
 
+        console.log("REQUEST ADDMESSAGE");
+        console.log(body);
         return res.status(500).json({
-            msg: "Internal server error",
+            msg: "Internal server error AQUI",
             state: 500
         });
-
+        
     } catch (err) {
         console.error(`[queueController] error: ${err}`);
         next(err);
