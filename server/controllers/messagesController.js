@@ -54,11 +54,15 @@ module.exports.addMessage = async (req, res, next) => {
         let _uniqueId = `${dNow.toISOString()}_${(Math.random() + 1).toString(36).substring(7)}`;
         
         // sent to API integration.
+        console.log("TYPE BODY");
+        console.log(body.type);
+        console.log(queueEntity.channelId);
+        
         const msg = await axios.post(process.env.MS_BOTURL + '/api/contactcenter', {
             type: body.type,
             id: _uniqueId,
             text: body.text,
-            channelId: body.channelId,
+            channelId: queueEntity.channelId,
             timestamp: dNow.toUTCString(),
             botreference: {
                 conversationId: queueEntity.conversationIdReference
