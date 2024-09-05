@@ -59,7 +59,7 @@ module.exports.addMessage = async (req, res, next) => {
         console.log(queueEntity.channelId);
         
         const msg = await axios.post(process.env.MS_BOTURL + '/api/contactcenter', {
-            type: 1,
+            type: body.type,
             id: _uniqueId,
             text: body.text,
             channelId: queueEntity.channelId,
