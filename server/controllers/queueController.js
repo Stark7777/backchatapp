@@ -259,7 +259,7 @@ module.exports.pickUserQueue = async (req, res, next) => {
             },
             contactcenterreference: {
                 state : body.type == 4 ? enums.ConversationStatus.Close : enums.ConversationStatus.Open,
-                conversationid: queueEntity._id
+                conversationId: queueEntity.conversationIdReference
             }
         });
         console.log("pickUserQueue");
