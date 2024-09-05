@@ -247,7 +247,10 @@ module.exports.pickUserQueue = async (req, res, next) => {
 
         let dNow = new Date();
         let _uniqueId = `${dNow.toISOString()}_${(Math.random() + 1).toString(36).substring(7)}`;
-        
+        console.log("BODY TYPE");
+        console.log(body.type);
+        console.log("STATE");
+        console.log(body.type == 4 ? enums.ConversationStatus.Close : enums.ConversationStatus.Open);
         // sent to API integration.
         const msg = await axios.post(process.env.MS_BOTURL + '/api/contactcenter', {
             type: 3,
