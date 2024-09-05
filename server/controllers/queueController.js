@@ -250,13 +250,15 @@ module.exports.pickUserQueue = async (req, res, next) => {
         console.log("BODY TYPE");
         console.log(body.type);
         console.log("STATE");
+        console.log("CHANNELID");
+        console.log(queueEntity.channelId):
         console.log(body.type == 4 ? enums.ConversationStatus.Close : enums.ConversationStatus.Open);
         // sent to API integration.
         const msg = await axios.post(process.env.MS_BOTURL + '/api/contactcenter', {
-            type: 3,
+            type: body.type,
             id: _uniqueId,
             text: '',
-            channelId: 2,
+            channelId: queueEntity.channelId,
             timestamp: dNow.toUTCString(),
             botreference: {
                 conversationId: queueEntity.conversationIdReference
