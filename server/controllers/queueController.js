@@ -250,17 +250,17 @@ module.exports.pickUserQueue = async (req, res, next) => {
         
         // sent to API integration.
         const msg = await axios.post(process.env.MS_BOTURL + '/api/contactcenter', {
-            type: body.type,
+            type: 3,
             id: _uniqueId,
-            text: "TEXT",
-            channelId: queueEntity.channelId,
+            text: '',
+            channelId: 2,
             timestamp: dNow.toUTCString(),
             botreference: {
-                conversationId: queueEntity.conversationIdReference
+                conversationId: '9AYGxCebDuWHXkCe5Kge3V-us'
             },
             contactcenterreference: {
-                state : body.type == 4 ? enums.ConversationStatus.Close : enums.ConversationStatus.Open,
-                conversationId: queueEntity.conversationIdReference
+                state : 1,
+                conversationId: '9AYGxCebDuWHXkCe5Kge3V-us'
             }
         });
         console.log("pickUserQueue");
