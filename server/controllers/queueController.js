@@ -253,7 +253,7 @@ module.exports.pickUserQueue = async (req, res, next) => {
             type: body.type,
             id: _uniqueId,
             text: "TEXT",
-            channelId: queueEntity .channelId,
+            channelId: queueEntity.channelId,
             timestamp: dNow.toUTCString(),
             botreference: {
                 conversationId: queueEntity.conversationIdReference
