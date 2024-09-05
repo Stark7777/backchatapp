@@ -58,14 +58,14 @@ module.exports.addMessage = async (req, res, next) => {
             type: body.type,
             id: _uniqueId,
             text: body.text,
-            channelId: 3,
+            channelId: body.channelId,
             timestamp: dNow.toUTCString(),
             botreference: {
                 conversationId: queueEntity.conversationIdReference
             },
             contactcenterreference: {
                 state : enums.ConversationStatus.Open,
-                conversationid: queueEntity._id
+                conversationId: queueEntity.conversationIdReference
             }
         });
         console.log("MENSAJE OBJETO");
