@@ -31,17 +31,21 @@ module.exports.addMessage = async (req, res, next) => {
          // get queue
          let filter = { _id: body.conversationid  };
          const queueEntity = await queueModel.findOne(filter);
+         console.log("QUEUE ENTITY");
+         console.log(queueEntity);
          if(queueEntity == null ) return res.status(500).json({
             msg: "Error conversationId not exist ",
              state: 500
          });
-
+          
          // there is agent assigned
          if(queueEntity.agentId != null && queueEntity.agentId != '' ){
             
             // get agent session
             filter = { agent: queueEntity.agentId };
             const agentSessionEntity = await agentSessionModel.findOne(filter);
+            console.log("AGENT SESSION ENTITY");
+            console.log(agentSessionEntity);
             if(agentSessionEntity == null) return res.status(500).json({
                 msg: "Agent error ",
                 state: 500
