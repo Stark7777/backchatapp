@@ -12,8 +12,8 @@ module.exports = {
     },
     // Conversation status
     ConversationStatus: {
-        Open: 0,
-        Close: 1
+        Open: 1,
+        Close: 2
     },
     // Api Codes 
     ApiCodes : {
