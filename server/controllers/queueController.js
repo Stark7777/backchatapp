@@ -256,11 +256,11 @@ module.exports.pickUserQueue = async (req, res, next) => {
             channelId: 2,
             timestamp: dNow.toUTCString(),
             botreference: {
-                conversationId: '1lsstdfkQ5b4j0TTJaLVdA-us'
+                conversationId: '3CkEwdRQn02FjgemEwRnhp-us'
             },
             contactcenterreference: {
                 state : 1,
-                conversationId: '1lsstdfkQ5b4j0TTJaLVdA-us'
+                conversationId: '3CkEwdRQn02FjgemEwRnhp-us'
             }
         });
         console.log("pickUserQueue");
