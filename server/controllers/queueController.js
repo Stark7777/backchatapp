@@ -264,6 +264,7 @@ module.exports.pickUserQueue = async (req, res, next) => {
             }
         });
         console.log("pickUserQueue");
+        console.log("OBJETO ENVIADO");
         console.log(msg);
         if(msg.status != 200 ) return res.status(500).json({ 
             msg: "Failed to send event",
