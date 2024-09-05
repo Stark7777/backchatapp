@@ -252,7 +252,7 @@ module.exports.pickUserQueue = async (req, res, next) => {
         const msg = await axios.post(process.env.MS_BOTURL + '/api/contactcenter', {
             type: body.type,
             id: _uniqueId,
-            channelId: body.channelId,
+            channelId: queueEntity .channelId,
             timestamp: dNow.toUTCString(),
             botreference: {
                 conversationId: queueEntity.conversationIdReference
