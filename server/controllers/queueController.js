@@ -122,7 +122,8 @@ module.exports.addUserQueue = async (req, res, next) => {
     try {
         
         const body =  req.body;
-        
+        console.log("REQUEST BODY");
+        console.log(req.body);
         // validations
         if(body == null || body == undefined) return res.status(400).json({
             msg: "body mustn't be null",
@@ -258,6 +259,10 @@ module.exports.pickUserQueue = async (req, res, next) => {
         console.log("CHANNELID");
         console.log(queueEntity.channelId);
         console.log(body.type == 4 ? enums.ConversationStatus.Close : enums.ConversationStatus.Open);
+        console.log("UNIQUE ID");
+        console.log(_uniqueId);
+        console.log("CONVERSATION ID REFERENCE");
+        console.log(queueEntity.conversationIdReference);
         // sent to API integration.
         const msg = await axios.post(process.env.MS_BOTURL + '/api/contactcenter', {
             type: body.type,
